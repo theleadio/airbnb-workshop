@@ -50,11 +50,5 @@
 
 <script>
 export default {
-  mounted(){
-    let controller = new ScrollMagic.Controller();
-    let scene = new ScrollMagic.Scene({triggerElement: "#trigger", triggerHook:0.1})
-            .setPin("#bookingForm")
-						.addTo(controller);
-  }
 }
 </script>
