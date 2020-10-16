@@ -19,6 +19,8 @@ export default {
       { src: 'https://kit.fontawesome.com/48d20e9c42.js', crossorigin: 'anonymous', type:'text/javascript'}
       ,{ src: 'http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', crossorigin: 'anonymous', type: 'text/javascript'}
       ,{ src: 'http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js', crossorigin: 'anonymous', type: 'text/javascript'}
+      ,{ src: 'https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js', type: 'text/javascript'}
+      ,{ src: 'https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js', type: 'text/javascript'}
     ]
   },
   /*

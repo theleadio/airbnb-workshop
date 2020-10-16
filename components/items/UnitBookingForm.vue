@@ -10,20 +10,26 @@
                     <div class="grid grid-cols-2">
                         <div class="flex flex-col py-2 px-3 border-r border-gray-600">
                             <div class="text-xs font-semibold tracking-wide">CHECK-IN</div>
-                            <div class="py-1 font-light">10/16/2020</div>
+                            <input type="date" class="border-none focus:border-none active:border-none text-sm py-1 font-light" v-model="dateFrom"/>
                         </div>
                         <div class="flex flex-col py-2 px-3">
                             <div class="text-xs font-semibold tracking-wide">CHECK-OUT</div>
-                            <div class="py-1 font-light">17/16/2020</div>
+                            <input type="date" class="border-none focus:border-none active:border-none text-sm py-1 font-light" v-model="dateTo"/>
                         </div>
                     </div>
                     <div class="flex items-center justify-between border-t border-gray-600">
-                        <div class="flex flex-col py-2 px-3">
+                        <div class="flex flex-col py-2 px-3 w-full">
                             <div class="text-xs font-medium">GUESTS</div>
-                            <div class="font-light">2 guests</div>
-                        </div>
-                        <div class="py-2 px-3">
-                            <i class="fas fa-caret-down text-2xl"></i>
+                            <select class="border-none focus:outline-none active:outline-none py-1"
+                                v-model="guest"
+                                @select="selectGuest(guest)"
+                                >
+                                <option disabled value="" selected>Please select one</option>
+                                <option
+                                    v-for="guest in dropDown" :key="guest" :value="guest">
+                                        {{ guest }}
+                                </option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -33,32 +39,32 @@
                         <div class="flex items-center justify-between border-b border-gray-600">
                             <div class="flex flex-col py-2 px-3">
                                 <div class="py-1 font-light">
-                                    Non-refundable · RM1,080 total
+                                    Non-refundable · RM1,080 total {{policy1}}
                                 </div>
                                 <div class="text-xs text-gray-700">
                                     Cancel before 3:00 PM on Oct 16 and only get a refund of the cleaning fee.
                                 </div>
                             </div>
                             <div class="px-4">
-                                <input type="radio" class="form-radio h-6 w-6 text-gray-600"/>
+                                <input type="radio" class="form-radio h-6 w-6 text-gray-600" v-model="policy1" @click="policy2 = false; policy1=true"/>
                             </div>
                         </div>
                         <div class="flex items-center justify-between">
                             <div class="flex flex-col py-2 px-3">
                                 <div class="py-1 font-light">
-                                    Refundable · RM1,090 total
+                                    Refundable · RM1,090 total {{policy2}}
                                 </div>
                                 <div class="text-xs text-gray-700">
                                     Free cancellation until Oct 11. After that, cancel before 3:00 PM on Oct 16 and get a 50% refund, minus the first night and service fee.
                                 </div>
                             </div>
                             <div class="px-4">
-                                <input type="radio" class="form-radio h-6 w-6 text-gray-600"/>
+                                <input type="radio" class="form-radio h-6 w-6 text-gray-600" v-model="policy2" @click="policy1 = false; policy2=true"/>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="transition-all duration-500 ease-in-out text-white bg-red-600 py-3 px-4 rounded-lg hover:bg-red-700">Reserve</button>
+                <button type="button" class="transition-all duration-500 ease-in-out text-white bg-red-600 py-3 px-4 rounded-lg hover:bg-red-700" @click="reserve">Reserve</button>
                 
                 <div class="border-b border-gray-400 py-4 text-center font-light text-sm">
                     You won't be charged yet
@@ -71,3 +77,39 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            dateFrom: "",
+            dateTo: "",
+            guest: "",
+            dropDown : [
+                "2 Guest",
+                "3 Guest",
+                "4 Guest",
+                "5 Guest",
+                "6 Guest",
+                "7 Guest",
+                "8 Guest",
+                "9 Guest",
+                "10 Guest",
+                "11 Guest",
+                "12 Guest",
+                "13 Guest",
+            ],
+            policy1: false,
+            policy2: false,
+            firestore: null
+        }
+    },
+    methods: {
+        selectGuest(guest) {
+        },
+        reserve(){
+        }
+    },
+    mounted(){
+    }
+}
+</script>
