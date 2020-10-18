@@ -74,5 +74,7 @@ export default {
   mounted(){
   }
 }
-
+// https://console.firebase.google.com/
+// https://github.com/theleadio/airbnb-workshop/tree/javascript
 </script>
+
