@@ -99,17 +99,16 @@ export default {
                 "13 Guest",
             ],
             policy1: false,
-            policy2: false,
-            firestore: null
+            policy2: false
         }
     },
     methods: {
         selectGuest(guest) {
+            this.guest = guest
         },
         reserve(){
+            
         }
-    },
-    mounted(){
     }
 }
 </script>
